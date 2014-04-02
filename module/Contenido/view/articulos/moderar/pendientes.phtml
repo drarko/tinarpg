@@ -1,0 +1,33 @@
+<h1>Pendientes de moderación</h1>
+<?php if (count($this->paginator)): ?>
+<div class="noticias">
+<ul>
+<?php foreach ($this->paginator as $item): ?>
+   
+  <li class="redondo">
+  
+  <div class="n-titulo"><span ><?php echo $item->titulo ?></span><span>autor <?php echo $item->usuario ?></span></div>
+  <br>
+  <div class="n-resumen"><span><?php 
+  
+  $item->resumen = str_replace("[","<",$item->resumen);
+  $item->resumen = str_replace("]",">",$item->resumen);
+  $item->texto = str_replace("[","<",$item->texto);
+  $item->texto = str_replace("]",">",$item->texto);
+  echo $item->resumen; 
+  
+  ?></span><hr><?php echo $item->texto ?></div>
+  <br>
+  <div class="floatstop"></div>
+  <div class="n-link v-n"><form id="pos" method="post" action="/articulos/moderar/aprobar"><input type="hidden" name="art" value="<?php echo $item->id_articulo ?>"><a href="#" onclick="$(this).parent().submit()">Aprobar</a></form></div>
+  <div class="floatstop"></div>
+  
+  
+  </li>
+  
+<?php endforeach; ?>
+</ul>
+</div>
+<?php endif; ?>
+<br>
+<?php echo $this->paginationControl($this->paginator, 'Sliding', 'my_pagination_control2'); ?>

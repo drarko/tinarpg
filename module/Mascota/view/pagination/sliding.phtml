@@ -1,0 +1,26 @@
+
+<?php if ($this->pageCount): ?>
+<div class="paginationControl redondo">
+
+
+<!-- Previous page link -->
+<?php if (isset($this->previous)): ?>
+  <a href="<?php echo $this->url($this->route, array('controller'=>'moderar','action'=>'pendientes','page' => $this->previous)); ?>">
+    < Recientes
+  </a> --
+<?php else: ?>
+  <span class="disabled">< Recientes</span> --
+<?php endif; ?>
+
+<!-- Next page link -->
+<?php if (isset($this->next)): ?>
+  <a href="<?php echo $this->url($this->route, array('controller'=>'moderar','action'=>'pendientes','page' => $this->next)); ?>">
+    Anteriores >
+  </a>
+<?php else: ?>
+  <span class="disabled">Anteriores ></span>
+<?php endif; ?>
+
+
+</div>
+<?php endif; ?>
