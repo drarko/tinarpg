@@ -13,7 +13,15 @@
         "doctrine/doctrine-orm-module": "0.8.*",
         "zendframework/zend-developer-tools": "dev-master",
         "middleout/third-party-connect": "dev-master",
-        "zendframework/zendoauth": "dev-master"
+        "zendframework/zendoauth": "dev-master",
+		"zendframework/zendservice-twitter": "dev-master",
+		"guzzle/guzzle": "~3.7"
+    },
+    "autoload": {
+        "psr-0": {
+	      "League\\Twitter": "vendor/twitter/src/"
+		}
     }
+
 }
 

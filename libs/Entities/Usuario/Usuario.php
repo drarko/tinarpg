@@ -24,12 +24,6 @@ class Usuario extends Entity  {
 
     /** @ORM\Column(type="string") */
     protected $usuario;
-
-    /** @ORM\Column(type="string") */
-    protected $clave;
-    
-    /** @ORM\Column(type="string") */
-    protected $email;
     
     /** 
     * @ORM\OneToOne(targetEntity="Entities\Banco\Cuenta", mappedBy="usuario", cascade={"persist"}) 
@@ -44,15 +38,6 @@ class Usuario extends Entity  {
     *      )
     */
     protected $region;
-
-    /**
-    * @ORM\ManyToMany(targetEntity="Entities\Auth\Rol", cascade={"persist"})
-    * @ORM\JoinTable(name="UsuarioRol",
-    *      joinColumns={@ORM\JoinColumn(name="usuario_id", referencedColumnName="id")},
-    *      inverseJoinColumns={@ORM\JoinColumn(name="rol_id", referencedColumnName="id")}
-    *      )
-    */
-    protected $rol;
     
     /** 
     * @ORM\OneToMany(targetEntity="UsuarioCaracteristica", mappedBy="usuario", cascade={"persist"}) 
@@ -70,9 +55,9 @@ class Usuario extends Entity  {
     protected $inventario;
     
     /** 
-    * @ORM\OneToMany(targetEntity="Relacion", mappedBy="usuario_orig", cascade={"persist"}) 
+    * ORM\OneToMany(targetEntity="Relacion", mappedBy="usuario_orig", cascade={"persist"}) 
     */      
-    protected $relacion;
+    //protected $relacion;
     
     public function __constructor()
     {
@@ -80,8 +65,7 @@ class Usuario extends Entity  {
       $this->usuario_perfil = new ArrayCollection();
       $this->usuario_caracteristica = new ArrayCollection();
       $this->inventario = new ArrayCollection();
-      $this->rol = new ArrayCollection();
-      $this->relacion = new ArrayCollection();
+      //$this->relacion = new ArrayCollection();
     }
       
     public function getUsername()
@@ -89,31 +73,12 @@ class Usuario extends Entity  {
       return $this->usuario;     
     }
 
-    public function getPassword()
-    {
-      return $this->clave;
-    }    
-    
+        
     public function getUsuario()
     {
       return $this->usuario;     
     }
-
-    public function getClave()
-    {
-      return $this->clave;
-    }    
-    
-    public function getEmail()
-    {
-      return $this->email;
-    }
-    
-    public function setEmail($email)
-    {
-      $this->email = $email;
-    }
- 
+	
     // getters/setters
 } 
 

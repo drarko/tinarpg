@@ -28,6 +28,21 @@ class Module
     {
         return include __DIR__ . '/config/module.config.php';
     }
+	
+    public function getServiceConfig()
+    {
+        return array(
+			'factories' => array(		
+				'Application\Service' => function ($sm) {
+					$serv = new Service\Application($sm);
+					if(method_exists ( $serv , "init" )) {
+						$serv->init();
+					}
+					return $serv;
+				},
+			),
+		);
+    }	
 
     public function getAutoloaderConfig()
     {

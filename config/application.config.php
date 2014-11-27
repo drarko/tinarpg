@@ -5,18 +5,11 @@ return array(
         'ZendDeveloperTools',
         'DoctrineModule',
         'DoctrineORMModule',
+        'ThirdPartyConnect',
 	'Controller',
 	'Service',
-	'Entities',
-        'Auth',       
+	'Entities',    
         'Application',  
-        'Contenido',
-        'Usuario',
-        'Region',
-        'Banco',
-        'Mascota',
-        'Item',
-        'Tienda'
     ),
 
     // These are various options for the listeners attached to the ModuleManager

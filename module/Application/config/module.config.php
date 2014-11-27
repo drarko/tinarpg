@@ -8,6 +8,31 @@
  */
 
 return array(
+    'console' => array(
+        'router' => array(
+            'routes' => array(
+				'run' => array(
+					'options' => array(
+						'route'    => 'run',
+						'defaults' => array(
+							'controller' => 'Application\Controller\Index',
+							'action'     => 'run'
+						)
+					)
+				),
+				'proccess' => array(
+					'options' => array(
+						'route'    => 'proc',
+						'defaults' => array(
+							'controller' => 'Application\Controller\Index',
+							'action'     => 'process'
+						)
+					)
+				)				
+            )
+        )
+    ),
+
     'router' => array(
         'routes' => array(
             'home' => array(
@@ -69,7 +94,9 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController'
+            'Application\Controller\Index' => 'Application\Controller\IndexController',
+			'Application\Controller\Registro' => 'Application\Controller\RegistroController',
+			'Application\Controller\Region' => 'Application\Controller\RegionController'
         ),
     ),
     'view_manager' => array(

@@ -35,7 +35,7 @@ class Banco extends Entity  {
     /** @ORM\Column(type="string") */
     protected $nombre;
 
-    /** @ORM\Column(type="text") */    
+    /** @ORM\Column(type="text", nullable=true) */    
     protected $descripcion;
     
     /** 
